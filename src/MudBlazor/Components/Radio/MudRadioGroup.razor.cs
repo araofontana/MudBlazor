@@ -51,7 +51,7 @@ namespace MudBlazor
         public void CheckGenericTypeMatch(object select_item)
         {
             var itemT = select_item.GetType().GenericTypeArguments[0];
-            if (itemT != typeof(T))
+            if (itemT != typeof(T) && itemT != Nullable.GetUnderlyingType(typeof(T)))
                 throw new GenericTypeMismatchException("MudRadioGroup", "MudRadio", typeof(T), itemT);
         }
 
